@@ -1,0 +1,107 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- Assure que le site s'adapte aux différentes tailles d'écran -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abonnement Platform</title>
+  <!-- Lien vers le fichier CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== Navigation (Header) ===== -->
+  <header>
+    <!-- Barre de navigation avec logo et boutons de connexion/inscription -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+      </div>
+
+      <a href="cart.html"><button  onclick="openCartModal()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-counter" id="cart-counter">0</span>
+        Panier
+      </button></a>
+
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html"><button>Accueil</button></a>
+        <!-- Bouton qui ouvre nos abonnements -->
+        <a href="subscription.html"><button >Nos offres</button></a>
+        
+        <!-- Bouton qui ouvre la page de transactions -->
+        <a href="transactions.html"><button >Transactions</button></a>
+
+        <!-- Bouton qui ouvre la page de contacts -->
+        <a href="contact.html"><button >Contact</button></a>
+        
+      </div>
+    </nav>
+  </header>
+
+  <section class="hero-section">
+    <h1>Contactez-Nous</h1>
+    <p>Besoin d’informations ou d’aide ? Remplissez le formulaire ci-dessous.</p>
+  </section>
+
+  <!-- Conteneur regroupant le formulaire et le contact direct -->
+  <section class="contact-container">
+    <!-- Formulaire de contact à gauche -->
+    <div class="contact-form">
+      <form action="mailto:gnefezimoubarak@gmail.com" method="POST" enctype="text/plain">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required  autofocus/>
+
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" required />
+
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message">Message (indiquez votre offre choisie ou laisser un message):</label>
+        <textarea id="message" name="message" rows="5" required></textarea>
+
+        <button type="submit">Envoyer</button>
+      </form>
+    </div>
+
+    <!-- Contact Direct à droite -->
+    <div class="direct-contact">
+      <h2>Nous Contacter Directement</h2>
+      <div class="contact-methods">
+        <!-- Bouton WhatsApp -->
+        <a href="https://wa.me/91224470" target="_blank" class="whatsapp-btn">
+          <img src="https://img.icons8.com/color/48/000000/whatsapp.png" alt="WhatsApp Icon" />
+          Contactez-nous sur WhatsApp
+        </a>
+
+        <!-- Numéros d'appel direct -->
+        <div class="call-info">
+          <p><strong>Appelez-nous :</strong></p>
+          <ul>
+            <li><a href="tel:+22891224470">+228 98 17 74 75</a></li>
+            <li><a href="tel:+22892026792">+228 98 17 74 75</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Abonnement Platform</p>
+</footer>
+
+<script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+
+  
+</body>
+</html>

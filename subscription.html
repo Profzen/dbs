@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- Pour s'assurer que la page est responsive -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nos Abonnements</title>
+  <!-- Lien vers le fichier CSS principal -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== Header avec Navigation ===== -->
+  <header>
+    <!-- Barre de navigation avec logo et boutons de connexion/inscription -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+      </div>
+
+      <a href="cart.html"><button onclick="openCartModal()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-counter" id="cart-counter">0</span>
+        Panier
+      </button></a>
+
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html"><button>Accueil</button></a>
+        <!-- Bouton qui ouvre nos abonnements -->
+        <a href="subscription.html"><button >Nos offres</button></a>
+        
+        <!-- Bouton qui ouvre la page de transactions -->
+        <a href="transactions.html"><button >Transactions</button></a>
+
+        <!-- Bouton qui ouvre la page de contacts -->
+        <a href="contact.html"><button >Contact</button></a>
+        
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Section Héros ===== -->
+  <section class="hero">
+    <h2>Bienvenue sur Abonnement Platform</h2>
+    <p>Découvrez nos abonnements exclusifs et profitez d'offres exceptionnelles !</p>
+    <!-- Bouton pour accéder directement au panier (par exemple) -->
+    <!-- Bouton qui ouvre la page des offres -->
+    <a href="subscription.html"><button >Nos offres</button></a>
+  </section>
+
+  <!-- ===== Section Principale pour Présenter Tous les Abonnements ===== -->
+  <section class="subscriptions-page">
+    <h2>Découvrez tous nos abonnements</h2>
+    <!-- Conteneur flex pour aligner les cartes d'abonnement -->
+    <div class="subscription-container">
+      <!-- ===== Carte d'Abonnement 1 ===== -->
+      <div class="subscription-item">
+        <img src="flex.jpg" alt="Description de l'offre 1" class="offer-image">
+        <!-- Titre de l'abonnement -->
+        <h3>Netflix Premium</h3>
+        <!-- Prix affiché -->
+        <p>15€ / mois</p>
+        <!-- Brève description -->
+        <p>Description: Accédez à un vaste catalogue de films et séries en haute définition.</p>
+        <!-- Bouton pour ajouter au panier -->
+        <button onclick="addToCart('Netflix Premium', 15, 'flex.jpg', 'Accédez à un vaste catalogue de films et séries en HD')">
+          Ajouter au panier
+        </button>
+        
+      </div>
+        
+
+      <!-- ===== Carte d'Abonnement 2 ===== -->
+      <div class="subscription-item">
+        <img src="flex.jpg" alt="Description de l'offre 1" class="offer-image">
+        <h3>Pack Cours en ligne</h3>
+        <p>20€ / mois</p>
+        <p>Description: Suivez des cours en ligne pour booster vos compétences professionnelles.</p>
+        <button onclick="addToCart('Pack Cours en ligne', 20, 'flex.jpg', 'Suivez des cours en ligne pour booster vos compétences professionnelles.')">Ajouter au panier</button>
+      </div>
+
+      <!-- ===== Carte d'Abonnement 3 ===== -->
+      <div class="subscription-item">
+        <img src="flex.jpg" alt="Description de l'offre 1" class="offer-image">
+        <h3>Spotify Premium</h3>
+        <p>10€ / mois</p>
+        <p>Description: Écoutez de la musique sans publicité et en haute qualité.</p>
+        <button onclick="addToCart('Spotify Premium', 10, 'flex.jpg', 'Écoutez de la musique sans publicité et en haute qualité.')">Ajouter au panier</button>
+      </div>
+
+      <!-- ===== Carte d'Abonnement 4 ===== -->
+      <div class="subscription-item">
+        <img src="flex.jpg" alt="Description de l'offre 1" class="offer-image">
+        <h3>Amazon Prime</h3>
+        <p>12€ / mois</p>
+        <p>Description: Profitez de la livraison rapide et d'un accès exclusif à Prime Video.</p>
+        <button onclick="addToCart('Amazon Prime', 12, 'flex.jpg', 'Profitez de la livraison rapide et un accès exclusif à Prime Video.')">Ajouter au panier</button>
+      </div>
+
+      <!-- Ajoute d'autres cartes ici si nécessaire -->
+    </div>
+  </section>
+
+  <!-- ===== Modale de Connexion (Réutilisée de la page d'accueil) ===== -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <!-- Bouton de fermeture -->
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <h2>Se connecter</h2>
+      <form id="loginForm">
+        <label for="loginEmail">Email :</label>
+        <input type="email" id="loginEmail" name="loginEmail" required>
+        <label for="loginPassword">Mot de passe :</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Modale d'Inscription (Réutilisée) ===== -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRegisterModal()">&times;</span>
+      <h2>S'inscrire</h2>
+      <form id="registerForm">
+        <label for="registerEmail">Email :</label>
+        <input type="email" id="registerEmail" name="registerEmail" required>
+        <label for="registerPassword">Mot de passe :</label>
+        <input type="password" id="registerPassword" name="registerPassword" required>
+        <button type="submit">S'inscrire</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Abonnement Platform</p>
+</footer>
+
+<script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+
+  
+</body>
+</html>

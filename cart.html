@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Votre Panier</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+  <header>
+    <!-- Barre de navigation avec logo et boutons de connexion/inscription -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+      </div>
+
+      <a href="cart.html"><button onclick="openCartModal()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-counter" id="cart-counter">0</span>
+        Panier
+      </button></a>
+
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html"><button>Accueil</button></a>
+        <!-- Bouton qui ouvre nos abonnements -->
+        <a href="subscription.html"><button >Nos offres</button></a>
+        
+        <!-- Bouton qui ouvre la page de transactions -->
+        <a href="transactions.html"><button >Transactions</button></a>
+
+        <!-- Bouton qui ouvre la page de contacts -->
+        <a href="contact.html"><button >Contact</button></a>
+        
+      </div>
+    </nav>
+  </header>
+
+    <!-- Section du panier -->
+    <section class="cart">
+        <h2>Articles dans votre panier</h2>
+        <div id="cart-items"></div>
+
+        <div class="cart-actions">
+            <button onclick="goToCheckout()">Finaliser la commande</button>
+            <!-- <button onclick="window.location.href='transactions.html'" class="transactions-button">Mes transactions</button> -->
+        </div>
+    </section>
+    
+
+    <footer>
+        <p>© 2025 Abonnement Platform</p>
+    </footer>
+
+    <script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+    <script>
+        // Appelle la fonction pour afficher le contenu du panier dès que la page est prête
+        displayCart();
+    </script>
+    
+</body>
+</html>

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paiement - Finaliser votre commande</title>
+    <link rel="stylesheet" href="style.css"> <!-- Lien vers le fichier CSS -->
+</head>
+<body>
+  <header>
+    <!-- Barre de navigation avec logo et boutons de connexion/inscription -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+      </div>
+
+      <a href="cart.html"><button onclick="openCartModal()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-counter" id="cart-counter">0</span>
+        Panier
+      </button></a>
+
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html"><button>Accueil</button></a>
+        <!-- Bouton qui ouvre nos abonnements -->
+        <a href="subscription.html"><button >Nos offres</button></a>
+        
+        <!-- Bouton qui ouvre la page de transactions -->
+        <a href="transactions.html"><button >Transactions</button></a>
+
+        <!-- Bouton qui ouvre la page de contacts -->
+        <a href="contact.html"><button >Contact</button></a>
+        
+      </div>
+    </nav>
+  </header>
+    <!-- Section du panier sous forme de tableau -->
+    <section class="checkout-section">
+      <h2>Votre Panier</h2>
+      <table id="cart-table">
+        <thead>
+          <tr>
+            <th>Produit</th>
+            <th>Prix</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Les lignes seront générées dynamiquement par le JS -->
+        </tbody>
+        <tfoot>
+          <tr>
+            <td><strong>Total</strong></td>
+            <td id="total-price"></td>
+          </tr>
+        </tfoot>
+      </table>
+    </section>
+
+    <!-- Section du formulaire client -->
+    <section class="checkout-form-section">
+      <h2>Vos informations</h2>
+      <form id="checkoutForm">
+        <div class="form-group">
+          <label for="firstName">Prénom</label>
+          <input type="text" id="firstName" name="firstName" required>
+        </div>
+        <div class="form-group">
+          <label for="lastName">Nom</label>
+          <input type="text" id="lastName" name="lastName" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Adresse email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-group">
+          <label for="phone">Numéro de téléphone</label>
+          <input type="tel" id="phone" name="phone" required>
+        </div>
+        <button type="submit">Valider la commande</button>
+      </form>
+    </section>
+
+  
+    <!-- ===== Modale de Connexion (Réutilisée de la page d'accueil) ===== -->
+  <div id="loginModal" class="modal">
+    <div class="modal-content">
+      <!-- Bouton de fermeture -->
+      <span class="close" onclick="closeLoginModal()">&times;</span>
+      <h2>Se connecter</h2>
+      <form id="loginForm">
+        <label for="loginEmail">Email :</label>
+        <input type="email" id="loginEmail" name="loginEmail" required>
+        <label for="loginPassword">Mot de passe :</label>
+        <input type="password" id="loginPassword" name="loginPassword" required>
+        <button type="submit">Se connecter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ===== Modale d'Inscription (Réutilisée) ===== -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRegisterModal()">&times;</span>
+      <h2>S'inscrire</h2>
+      <form id="registerForm">
+        <label for="registerEmail">Email :</label>
+        <input type="email" id="registerEmail" name="registerEmail" required>
+        <label for="registerPassword">Mot de passe :</label>
+        <input type="password" id="registerPassword" name="registerPassword" required>
+        <button type="submit">S'inscrire</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 Abonnement Platform</p>
+</footer>
+
+<script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+
+  
+</body>
+</html>

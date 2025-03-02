@@ -1,0 +1,971 @@
+/* ============================= */
+/*       Styles Généraux        */
+/* ============================= */
+.logo{
+  width: 90px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 15px; 
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    padding-top: 70px;
+  }
+  
+  /* ============================= */
+  /*         Navigation           */
+  /* ============================= */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FFA500; /* Bleu vibrant */
+    padding: 10px 20px;
+    color:black;
+    position: fixed; /* La barre reste fixe */
+    top: 0;          /* Positionnée en haut de la page */
+    left: 0;
+    width: 100%;     /* Prend toute la largeur */
+    z-index: 1000;   /* Pour qu'elle reste au-dessus du contenu */
+    border: 4px solid black;
+    
+  }
+  
+  .navbar .logo h1 {
+    margin: 0;
+    font-size: 24px;
+  }
+  
+  .nav-links {
+    display: flex;
+    margin-left: auto;
+  }
+  .nav-links button {
+    margin-left: 10px;
+    background-color: white;
+    color: #007BFF ;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-links button:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  /* ============================= */
+  /*         Section Héros        */
+  /* ============================= */
+  .hero {
+    background: linear-gradient(135deg, #ce7713, #0072FF); /* Dégradé dynamique */
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    
+    
+  }
+  
+  .hero h2 {
+    font-size: 36px;
+    margin-bottom: 10px;
+
+  }
+  
+  .hero p {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .hero button {
+    padding: 12px 24px;
+    background-color: white;
+    color: #0072FF;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .hero button:hover {
+    background-color: black;
+    color: white;
+  }
+  
+  /* ============================= */
+  /*    Sections Abonnements      */
+  /* ============================= */
+  .subscriptions, .popular-subscriptions {
+    padding: 40px 20px;
+    text-align: center;
+  }
+  
+  .subscriptions h2, .popular-subscriptions h2 {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  /* Conteneur des abonnements en disposition flexible */
+  .subscription-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 0px;
+    padding-bottom: 50px;
+  }
+  
+  /* Style de chaque carte d'abonnement */
+  .subscription-item {
+    background-color: #f9f9f9;
+    padding: 20px;
+    width: 250px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    text-align: center;
+  }
+  
+  
+  .subscription-item h3 {
+    margin-top: 0;
+    color: #007BFF;
+  }
+  
+  .subscription-item p {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .subscription-item button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .subscription-item button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Accentuer les abonnements populaires */
+  .subscription-item.popular {
+    border: 2px solid #0072FF; /* Couleur d'accent pour les items populaires */
+  }
+  .subscription-item {
+    border: 2px solid #FF5722; /* Couleur d'accent pour les items populaires */
+  }
+  
+  /* ============================= */
+  /*         Modales              */
+  /* ============================= */
+  .modal {
+    display: none; /* Masqué par défaut */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Fond semi-transparent */
+  }
+  
+  .modal-content {
+    background-color: #fff;
+    margin: 10% auto; /* Centré verticalement */
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+    position: relative;
+  }
+  
+  .modal-content h2 {
+    margin-top: 0;
+  }
+  
+  .modal-content label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  .modal-content input {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+  }
+  
+  .modal-content button {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .modal-content button:hover {
+    background-color: #0056b3;
+  }
+  
+  /* Bouton de fermeture (X) */
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover {
+    color: black;
+  }
+  
+  /* ============================= */
+  /*          Footer              */
+  /* ============================= */
+  footer {
+    background-color: #007BFF;
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  /* ============================= */
+  /*        Styles Responsive     */
+  /* ============================= */
+
+
+/* Logo à gauche */
+.logo {
+  flex: 1;
+}
+
+/* Liens de navigation pour PC */
+.nav-links {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  gap: 15px;  /* Espacement entre les éléments */
+}
+
+/* Bouton panier à droite */
+.cart-container {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* Style du bouton panier */
+.cart-container button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  position: relative;
+}
+
+/* Style de l'icône et du compteur */
+.cart-icon {
+  margin-right: 5px;
+}
+.cart-counter {
+  background-color: red;
+  border-radius: 50%;
+  padding: 2px 6px;
+  font-size: 12px;
+  margin-right: 5px;
+}
+
+/* ========= Menu Burger (Mobile) ========= */
+/* Par défaut, le menu burger est caché sur desktop */
+.hamburger-menu {
+  display: none;
+}
+
+/* ========= Responsive Styles ========= */
+@media (max-width: 768px) {
+  /* Affichage sur mobile : logo à gauche, menu burger au centre, panier à droite */
+  .navbar {
+    justify-content: space-between;
+  }
+  
+  /* Afficher le menu burger sur mobile */
+  .hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    flex: 1;
+    order: 2;
+  }
+  .cart-button {
+    order: 1;
+    flex: 1;
+    text-align: center;
+  }
+  .hamburger-menu .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+  }
+  
+  /* Masquer les liens de navigation par défaut */
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 60px; /* Ajuste selon la hauteur de la navbar */
+    left: 0;
+    width: 100%;
+    background-color: #007BFF;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 0;
+  }
+  
+  /* On conserve le logo et le panier dans leurs positions respectives */
+  .logo, .cart-container {
+    flex: 1;
+  }
+}
+@media (max-width: 768px) {
+  .subscription-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px; /* espace entre les cartes */
+  }
+  
+  .subscription-item {
+    /* Chaque carte occupe environ 50% de la largeur de la ligne moins un peu d'espace pour le gap */
+    flex: 0 0 calc(50% - 20px);
+    box-sizing: border-box;
+  }
+}
+
+/* Optionnel : classe pour afficher le menu burger quand il est actif */
+.nav-links.mobile-active {
+  display: flex;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.cart-actions {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: row;
+}
+.cart {
+  border: 2px solid #007BFF; /* Bordure bleue */
+  border-radius: 8px; /* Coins arrondis */
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Légère ombre portée */
+}
+
+.cart-actions button {
+  border: 2px solid #007BFF;
+  background-color: white;
+  color: #007BFF;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cart-actions button:hover {
+  background-color: #007BFF;
+  color: white;
+}
+.offer-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+/* Style pour la div de chaque article du panier */
+.cart-item {
+  background-color: #f8f8f8; /* Fond clair */
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  border: 2px solid #007BFF;
+  
+}
+
+/* Style pour l'image dans chaque article du panier */
+.cart-item-image {
+  width: 80px;
+  height: auto;
+  border-radius: 8px;
+  margin-right: 15px;
+}
+
+/* Style pour les détails de l'article */
+.cart-item-details {
+  flex: 1;
+}
+
+/* Style pour le bouton "Supprimer" */
+.cart-item-details button {
+  background-color: #e74c3c; /* Rouge */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-item-details button:hover {
+  background-color: #c0392b;
+}
+/* Styles pour la section "Pourquoi nous choisir" */
+.why-choose-us {
+  padding: 40px 20px;
+  text-align: center;
+  background-color: #f0f8ff; /* Optionnel, pour différencier la section */
+}
+
+.why-choose-us h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+}
+
+.why-choose-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.why-choose-item {
+  background-color: #fff;
+  padding: 20px;
+  width: 250px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.why-choose-item h3 {
+  margin-top: 10px;
+  color: #007BFF;
+}
+
+.why-choose-item p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.why-image {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 80px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.login-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007BFF;
+}
+.login-container form {
+  display: flex;
+  flex-direction: column;
+}
+.login-container form label {
+  margin: 10px 0 5px;
+}
+.login-container form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.login-container form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.login-container form button:hover {
+  background-color: #0056b3;
+}
+.register-link {
+  text-align: center;
+  margin-top: 15px;
+}
+.register-link a {
+  color: #007BFF;
+  text-decoration: none;
+  font-weight: bold;
+}
+.register-link a:hover {
+  text-decoration: underline;
+}
+/* ============================= */
+/*         Modale d'Inscription  */
+/* ============================= */
+.modal {
+  display: none; /* Cachée par défaut */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.5); /* Fond semi-transparent */
+}
+.modal-content {
+  background-color: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 400px;
+  position: relative;
+}
+.modal-content h2 {
+  margin-top: 0;
+  text-align: center;
+  color: #007BFF;
+}
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+}
+.modal-content form label {
+  margin: 10px 0 5px;
+}
+.modal-content form input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.modal-content form button {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+.modal-content form button:hover {
+  background-color: #0056b3;
+}
+.close {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #aaa;
+}
+.close:hover {
+  color: black;
+}
+
+/* Checkout Section - Tableau du panier */
+.checkout-section h2 {
+  margin-bottom: 20px;
+  color: #007BFF;
+  text-align: center;
+}
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+#cart-table th, #cart-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+#cart-table th {
+  background-color: #007BFF;
+  color: #fff;
+}
+#cart-table tfoot td {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+/* Checkout Section - Tableau du panier */
+.checkout-section h2 {
+  margin-bottom: 20px;
+  color: #007BFF;
+  text-align: center;
+}
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+#cart-table th, #cart-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+#cart-table th {
+  background-color: #007BFF;
+  color: #fff;
+}
+#cart-table tfoot td {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #f9f9f9;
+}
+
+/* Checkout Form Section */
+.checkout-form-section {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+.checkout-form-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007BFF;
+}
+.form-group {
+  margin-bottom: 15px;
+}
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #007BFF;
+}
+.form-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+button[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background-color: #007BFF;
+  border: none;
+  border-radius: 4px;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Responsive - pour mobile */
+@media (max-width: 768px) {
+  main {
+    margin: 20px auto;
+    padding: 0 10px;
+    width: 100%;
+  }
+  
+  /* Pour centrer le contenu du tableau et du formulaire */
+  .checkout-section,
+  .checkout-form-section {
+    margin: 0 auto 20px auto;
+    width: 100%;
+    max-width: 100%; /* Assure que la largeur est à 100% de l'écran */
+    padding: 0 10px; /* Optionnel, pour ajouter un peu de padding */
+  }
+  
+  /* Pour le tableau, éviter un margin droit excessif */
+  #cart-table {
+    width: 100%;
+    margin: 0 auto; /* Centrer le tableau */
+    display: block;
+    overflow-x: hidden;
+  }
+}
+
+/* Section Transactions */
+.transactions-section {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.transactions-section h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #007BFF;
+}
+
+#transactions-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  margin-bottom: 40px;
+}
+
+#transactions-table th,
+#transactions-table td {
+  padding: 15px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+
+#transactions-table th {
+  background-color: #007BFF;
+  color: #fff;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px 0;
+  background-color: #FFA500;
+  color: #fff;
+  margin-top: 40px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .transactions-section {
+    padding: 0 10px;
+  }
+  #transactions-table th,
+  #transactions-table td {
+    padding: 10px;
+  }
+}
+
+.hero-section {
+  text-align: center;
+  padding: 4em 2em;
+  background: linear-gradient(135deg, #ce7713, #0072FF);
+  color: white;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+.hero-section h1 {
+  font-size: 3em;
+  margin-bottom: 0.5em;
+}
+
+.hero-section p {
+  font-size: 1.2em;
+}
+
+.contact-form {
+  padding: 2em;
+  max-width: 600px;
+  margin: 2em auto;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form label {
+  margin: 0.5em 0 0.2em;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 1em;
+}
+
+.contact-form button {
+  background-color: #007BFF;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #e6ac00;
+}
+
+@media (max-width: 576px) {
+  .contact-container {
+    flex-direction: column;
+  }
+  .contact-form {
+      width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .contact-form {
+      padding: 1em;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+      font-size: 0.9em;
+  }
+}
+
+footer {
+  text-align: center;
+  padding: 1em 0.5em;
+}
+.contact-methods {
+margin-top: 20px;
+
+}
+
+.whatsapp-btn {
+display: inline-flex;
+align-items: center;
+text-decoration: none;
+color: #25d366;
+font-weight: bold;
+margin: 10px 0;
+}
+
+.whatsapp-btn img {
+margin-right: 8px;
+width: 24px;
+height: 24px;
+}
+
+.contact-methods ul {
+list-style: none;
+padding: 0;
+}
+
+.contact-methods ul li {
+margin: 5px 0;
+}
+/* Conteneur général pour le formulaire et le contact direct */
+.contact-container {
+display: flex;
+gap: 40px;
+margin: 40px auto;
+max-width: 1200px;
+padding: 0 20px;
+}
+
+/* Formulaire de contact (à gauche) */
+.contact-container .contact-form {
+flex: 1;
+}
+
+/* Contact direct (à droite) */
+.contact-container .direct-contact {
+flex: 1;
+background-color: #fff6db;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+/* Titre de la section de contact direct */
+.direct-contact h2 {
+text-align: center;
+margin-bottom: 20px;
+color: #333;
+}
+
+/* Bouton WhatsApp */
+.whatsapp-btn {
+display: inline-flex;
+align-items: center;
+text-decoration: none;
+color: #25d366;
+font-weight: bold;
+background-color: #ffed99;
+padding: 10px 15px;
+border-radius: 5px;
+transition: background 0.3s;
+margin-bottom: 20px;
+}
+
+.whatsapp-btn:hover {
+background-color: #ffe066;
+}
+
+.whatsapp-btn img {
+margin-right: 10px;
+width: 32px;
+height: 32px;
+}
+
+/* Informations pour l'appel direct */
+.call-info p {
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.call-info ul {
+list-style: none;
+padding: 0;
+}
+
+.call-info ul li {
+margin-bottom: 5px;
+}

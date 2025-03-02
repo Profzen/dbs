@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Connexion - Abonnement Platform</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <!-- Barre de navigation avec logo et boutons de connexion/inscription -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+      </div>
+
+      <a href="cart.html"><button onclick="openCartModal()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-counter" id="cart-counter">0</span>
+        Panier
+      </button></a>
+
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html"><button>Accueil</button></a>
+        <!-- Bouton qui ouvre nos abonnements -->
+        <a href="subscription.html"><button >Nos offres</button></a>
+        
+        <!-- Bouton qui ouvre la page de transactions -->
+        <a href="transactions.html"><button >Transactions</button></a>
+
+        <!-- Bouton qui ouvre la page de contacts -->
+        <a href="contact.html"><button >Contact</button></a>
+        
+      </div>
+    </nav>
+  </header>    
+  <div class="login-container">
+    <h2>Connexion</h2>
+    <form id="loginForm">
+      <label for="loginEmail">Email :</label>
+      <input type="email" id="loginEmail" name="loginEmail" required>
+      <label for="loginPassword">Mot de passe :</label>
+      <input type="password" id="loginPassword" name="loginPassword" required>
+      <button type="submit">Se connecter</button>
+    </form>
+    <div class="register-link">
+      <p>Vous n'avez pas de compte ? <a href="#" onclick="openRegisterModal()">Inscrivez-vous</a></p>
+    </div>
+  </div>
+
+  <!-- Modale d'Inscription -->
+  <div id="registerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" onclick="closeRegisterModal()">&times;</span>
+      <h2>Inscription</h2>
+      <form id="registerForm">
+        <label for="name">Nom :</label>
+        <input type="text" id="name" name="name" required>
+        <label for="firstname">Prénom :</label>
+        <input type="text" id="firstname" name="firstname" placeholder="Prénom" required>
+        <label for="registerEmail">Email :</label>
+        <input type="email" id="registerEmail" name="registerEmail" required>
+        <label for="registerPassword">Mot de passe :</label>
+        <input type="password" id="registerPassword" name="registerPassword" required>
+        <button type="submit">S'inscrire</button>
+      </form>
+      <script>
+        document.getElementById('register-form').addEventListener('submit', function(event) {
+          event.preventDefault();
+          
+          const firstName = document.getElementById('first-name').value;
+          const lastName = document.getElementById('last-name').value;
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          
+          registerUser(firstName, lastName, email, password);
+        });
+      </script>
+    </div>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Abonnement Platform</p>
+  </footer>
+
+  <script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <!-- Assure que le site s'adapte aux différentes tailles d'écran -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Abonnement Platform</title>
+  <!-- Lien vers le fichier CSS -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- ===== Navigation (Header) ===== -->
+  <header>
+    <!-- Barre de navigation avec logo et boutons de connexion/inscription -->
+    <nav class="navbar">
+      <div class="logo">
+        <a href="index.html"><img src="logo.png" alt="logo" class="logo"></a>
+      </div>
+
+      <a href="cart.html"><button  onclick="openCartModal()">
+        <span class="cart-icon">🛒</span>
+        <span class="cart-counter" id="cart-counter">0</span>
+        Panier
+      </button></a>
+
+      <div class="hamburger-menu" id="hamburger-menu">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+
+      <div class="nav-links">
+        <a href="index.html"><button>Accueil</button></a>
+        <!-- Bouton qui ouvre nos abonnements -->
+        <a href="subscription.html"><button >Nos offres</button></a>
+        
+        <!-- Bouton qui ouvre la page de transactions -->
+        <a href="transactions.html"><button >Transactions</button></a>
+
+        <!-- Bouton qui ouvre la page de contacts -->
+        <a href="contact.html"><button >Contact</button></a>
+        
+      </div>
+    </nav>
+  </header>
+
+  <!-- ===== Section Héros ===== -->
+  <section class="hero">
+    <h2>Bienvenue sur Abonnement Platform</h2>
+    <p>Découvrez nos abonnements exclusifs et profitez d'offres exceptionnelles !</p>
+    <!-- Bouton pour accéder directement au panier (par exemple) -->
+    <!-- Bouton qui ouvre la page des offres -->
+    <a href="subscription.html"><button >Nos offres</button></a>
+  </section>
+
+  <!-- ===== Section pourquoi nous choisir" ===== -->
+  <section class="why-choose-us">
+    <h2>Pourquoi nous choisir</h2>
+    <div class="why-choose-container">
+      <!-- Raison 1 : Qualité exceptionnelle -->
+      <div class="why-choose-item">
+        <img src="flex.jpg" alt="Qualité exceptionnelle" class="why-image">
+        <h3>Qualité exceptionnelle</h3>
+        <p>Des offres sélectionnées avec soin pour garantir une qualité irréprochable.</p>
+      </div>
+      <!-- Raison 2 : Support 24/7 -->
+      <div class="why-choose-item">
+        <img src="flex.jpg" alt="Support 24/7" class="why-image">
+        <h3>Support 24/7</h3>
+        <p>Un service client disponible à tout moment pour répondre à vos questions.</p>
+      </div>
+      <!-- Raison 3 : Prix compétitifs -->
+      <div class="why-choose-item">
+        <img src="flex.jpg" alt="Prix compétitifs" class="why-image">
+        <h3>Prix compétitifs</h3>
+        <p>Des abonnements offrant le meilleur rapport qualité-prix sur le marché.</p>
+      </div>
+      <!-- Raison 4 : Innovation continue -->
+      <div class="why-choose-item">
+        <img src="flex.jpg" alt="Innovation continue" class="why-image">
+        <h3>Innovation continue</h3>
+        <p>Nous innovons constamment pour améliorer votre expérience utilisateur.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- ===== Section "Abonnements Populaires" ===== -->
+  <section class="popular-subscriptions">
+    <h2>Abonnements Populaires</h2>
+    <div class="subscription-container">
+      <div class="subscription-item popular">
+        <img src="flex.jpg" alt="Description de l'offre 1" class="offer-image">
+        <h3>Spotify Premium</h3>
+        <p>10€ / mois</p>
+        <button onclick="addToCart('Spotify Premium', 10)">Ajouter au panier</button>
+      </div>
+      <div class="subscription-item popular">
+        <img src="flex.jpg" alt="Description de l'offre 1" class="offer-image">
+        <h3>Amazon Prime</h3>
+        <p>12€ / mois</p>
+        <button onclick="addToCart('Amazon Prime', 12)">Ajouter au panier</button>
+      </div>
+      <!-- D'autres abonnements populaires peuvent être ajoutés ici -->
+    </div>
+  </section>
+
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    <p>© 2025 Abonnement Platform</p>
+</footer>
+
+<script src="script.js"></script> <!-- Lien vers le fichier JavaScript -->
+
+  
+</body>
+</html>
