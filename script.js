@@ -267,7 +267,7 @@ function loadTransactions() {
 document.addEventListener("DOMContentLoaded", loadTransactions);
 
 
-// Fonction pour inscrire un utilisateur
+/* Fonction pour inscrire un utilisateur
 function registerUser(firstName, lastName, email, password) {
   fetch('http://127.0.0.1:5000/api/auth/register', {
     method: 'POST',
@@ -478,6 +478,7 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("Erreur lors du chargement des transactions : " + error.message);
     });
 });
+*/
 
 
 
