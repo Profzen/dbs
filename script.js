@@ -224,11 +224,29 @@ function loadCart() {
   totalPriceElement.textContent = total.toFixed(2) + ' €';
 }
 
+// Gestion de la soumission du formulaire de checkout
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  // Récupérer les valeurs du formulaire
+  const firstName = document.getElementById('firstName').value;
+  const lastName  = document.getElementById('lastName').value;
+  const email     = document.getElementById('email').value;
+  const phone     = document.getElementById('phone').value;
+  
+  // Ici, vous pouvez ajouter la logique de validation et de paiement
+  alert(`Merci ${firstName} ${lastName}, votre commande est en cours de traitement.`);
+
+  updateCartCounter(); // Actualise le compteur
+  this.reset();
+  // Optionnel : Vider le panier après validation
+  localStorage.removeItem('cart');
+  loadCart();
+});
 
 // Charger le panier dès que le DOM est prêt
 document.addEventListener('DOMContentLoaded', loadCart);
 
-// Fonction pour charger les transactions dans le tableau transaction
+// Fonction pour charger les transactions dans le tableau
 function loadTransactions() {
   const tableBody = document.querySelector("#transactions-table tbody");
   tableBody.innerHTML = ""; // Vider le contenu
@@ -395,16 +413,7 @@ document.getElementById("checkoutForm").addEventListener("submit", function(e) {
   .catch(error => {
       console.error(error);
       alert("Erreur lors de la commande : " + error.message);
-  })
-  
-   // Ici, vous pouvez ajouter la logique de validation et de paiement
-   alert(`Merci ${firstName} ${lastName}, votre commande est en cours de traitement.`);
-
-  updateCartCounter(); // Actualise le compteur
-  this.reset();
-  // Optionnel : Vider le panier après validation
-  localStorage.removeItem('cart');
-  loadCart();
+  });
 });
 
 //Dans transactions.html, juste avant la fermeture de la balise </body>
@@ -469,6 +478,8 @@ document.addEventListener("DOMContentLoaded", function() {
         alert("Erreur lors du chargement des transactions : " + error.message);
     });
 });
+
+
 
 
 
