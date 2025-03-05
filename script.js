@@ -227,6 +227,7 @@ function loadCart() {
 // Gestion de la soumission du formulaire de checkout
 document.getElementById('checkoutForm').addEventListener('submit', function(e) {
   e.preventDefault();
+  
   // Récupérer les valeurs du formulaire
   const firstName = document.getElementById('firstName').value;
   const lastName  = document.getElementById('lastName').value;
@@ -235,13 +236,24 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
   
   // Ici, vous pouvez ajouter la logique de validation et de paiement
   alert(`Merci ${firstName} ${lastName}, votre commande est en cours de traitement.`);
-
+  
+  // Optionnel : Actualiser le compteur, réinitialiser le formulaire et vider le panier
   updateCartCounter(); // Actualise le compteur
   this.reset();
-  // Optionnel : Vider le panier après validation
   localStorage.removeItem('cart');
   loadCart();
+  
+  // Préparer le message WhatsApp (encodez-le pour l'URL)
+  const message = encodeURIComponent("Bonjour bienvenue");
+  
+  // Construire l'URL pour envoyer le message via WhatsApp
+  // Note : Assurez-vous que le numéro est au format international si nécessaire (ex: "33XXXXXXXXX" pour la France)
+  const whatsappUrl = `https://wa.me/22891224470?text=${message}`;
+  
+  // Rediriger l'utilisateur vers WhatsApp
+  window.location.href = whatsappUrl;
 });
+
 
 // Charger le panier dès que le DOM est prêt
 document.addEventListener('DOMContentLoaded', loadCart);
