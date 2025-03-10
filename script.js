@@ -234,12 +234,204 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
   const email     = document.getElementById('email').value;
   const phone     = document.getElementById('phone').value;
   
+  // Récupérer les produits du panier depuis localStorage
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Initialiser le message pour les produits et calculer le total
+  let productsMessage = "";
+  let total = 0;
+  
+  // Parcourir chaque produit du panier
+  cartItems.forEach(item => {
+      // Si la quantité n'est pas définie, on considère 1 par défaut
+      const quantity = item.quantity ? item.quantity : 1;
+      total += item.price * quantity;
+      // Utiliser le champ "name" s'il existe, sinon "product_id"
+      const productName = item.name || item.product_id;
+      productsMessage += `Produit: ${productName}, Quantité: ${quantity}, Prix: ${item.price}€\n`;
+  });
+  
+  // Générer automatiquement un identifiant de commande (par exemple, en utilisant Date.now())
+  const orderId = "CMD" + Date.now();
+  
+  // Créer l'objet commande avec toutes les informations
+  const newOrder = {
+    order_id: orderId,
+    created_at: new Date().toISOString(),
+    total: total,
+    status: "En attente",
+    products: cartItems, // Vous pouvez aussi stocker une version simplifiée si besoin
+    customer: {
+      firstName: firstName,
+      lastName: lastName,
+      email: email,
+      phone: phone
+    }
+  };
+  
+  // Récupérer le tableau des commandes existantes ou l'initialiser s'il n'existe pas
+  let orders = JSON.parse(localStorage.getItem("orders")) || [];
+  orders.push(newOrder);
+  localStorage.setItem("orders", JSON.stringify(orders));
+  
+  // Construire le message complet à envoyer via WhatsApp
+  const completeMessage = `Bonjour ${firstName} ${lastName},\n\n` +
+                          `Merci pour votre commande. Voici les détails de votre commande :\n` +
+                          `${productsMessage}\n` +
+                          `Total: ${total}€\n` +
+                          `ID de commande: ${orderId}\n` +
+                          `Date: ${new Date().toLocaleString()}\n\n` +
+                          `Nous vous souhaitons une excellente journée.`;
+  
+  // Afficher une alerte de confirmation
+  alert(`Merci ${firstName} ${lastName}, votre commande est en cours de traitement.`);
+  
+  // Optionnel : Actualiser le compteur, réinitialiser le formulaire et vider le panier
+  updateCartCounter();
+  this.reset();
+  localStorage.removeItem('cart');
+  loadCart();
+  
+  // Encoder le message complet en UTF-8 pour l'inclure dans l'URL
+  const encodedMessage = encodeURIComponent(completeMessage);
+  
+  // Construire l'URL WhatsApp pour envoyer le message
+  // Remplacez "22891224470" par le numéro de téléphone au format international (sans le signe +)
+  const whatsappUrl = `https://wa.me/22891224470?text=${encodedMessage}`;
+  
+  // Rediriger l'utilisateur vers WhatsApp avec le message pré-rempli
+  window.location.href = whatsappUrl;
+});
+
+
+/*
+// Gestion de la soumission du formulaire de checkout
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Récupérer les valeurs du formulaire
+  const firstName = document.getElementById('firstName').value;
+  const lastName  = document.getElementById('lastName').value;
+  const email     = document.getElementById('email').value;
+  const phone     = document.getElementById('phone').value;
+  
+  // Récupérer les produits du panier depuis localStorage
+  const cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+  
+  // Initialiser le message de la commande et le total
+  let productsMessage = "";
+  let total = 0;
+  
+  // Parcourir chaque produit pour construire le message et calculer le total
+  cartItems.forEach(item => {
+      // Déterminer la quantité (si non spécifiée, on considère 1)
+      let quantity = item.quantity ? item.quantity : 1;
+      // Calculer le total pour cet item et l'ajouter au total général
+      total += item.price * quantity;
+      // Utiliser le champ "name" s'il existe, sinon "product_id"
+      let productName = item.name || item.product_id;
+      // Ajouter les détails de l'item au message
+      productsMessage += `Produit: ${productName}, Quantité: ${quantity}, Prix: ${item.price}€\n`;
+  });
+  
+  // Construire le message complet avec les détails de la commande
+  const completeMessage = `Bonjour ${firstName} ${lastName},\n\n` +
+                          `Merci pour votre commande. Voici les détails de votre commande :\n` +
+                          `${productsMessage}\n` +
+                          `Total: ${total}€\n\n` +
+                          `Nous vous souhaitons une excellente journée.`;
+  
+  // Afficher une alerte de confirmation
+  alert(`Merci ${firstName} ${lastName}, votre commande est en cours de traitement.`);
+  
+  // Optionnel : Actualiser le compteur, réinitialiser le formulaire et vider le panier
+  updateCartCounter(); // Actualise le compteur
+  this.reset();        // Réinitialise le formulaire
+  localStorage.removeItem('cart');  // Vide le panier
+  loadCart();          // Recharge le contenu du panier
+  
+  // Encoder le message complet en UTF-8 pour l'URL
+  const encodedMessage = encodeURIComponent(completeMessage);
+  
+  // Construire l'URL WhatsApp pour envoyer le message
+  // Remplacez "22891224470" par le numéro de téléphone au format international (sans le signe +)
+  const whatsappUrl = `https://wa.me/22891224470?text=${encodedMessage}`;
+  
+  // Rediriger l'utilisateur vers WhatsApp avec le message pré-rempli
+  window.location.href = whatsappUrl;
+});
+*/
+
+// Ce script s'exécute lorsque le DOM est complètement chargé pour metrtre a jour l'historique
+document.addEventListener("DOMContentLoaded", function() {
+  // Récupérer le tableau des commandes depuis le localStorage
+  let orders = localStorage.getItem("orders");
+  
+  // Sélectionner le corps du tableau dans lequel nous allons injecter les lignes
+  const tbody = document.querySelector("#transactions-table tbody");
+  
+  // Si aucune commande n'est trouvée dans le localStorage, afficher un message
+  if (!orders) {
+      tbody.innerHTML = "<tr><td colspan='4'>Aucune transaction trouvée.</td></tr>";
+      return;
+  }
+  
+  // Convertir la chaîne JSON en tableau d'objets
+  orders = JSON.parse(orders);
+  
+  // Vider le contenu actuel du tableau
+  tbody.innerHTML = "";
+  
+  // Pour chaque commande dans le tableau, créer une ligne dans le tableau
+  orders.forEach(order => {
+      const tr = document.createElement("tr");
+      
+      // Création de la cellule pour l'identifiant de la commande
+      const idCell = document.createElement("td");
+      idCell.textContent = order.order_id || "N/A";
+      
+      // Création de la cellule pour la date de création
+      const dateCell = document.createElement("td");
+      // Formater la date pour une meilleure lisibilité
+      dateCell.textContent = order.created_at ? new Date(order.created_at).toLocaleString() : "N/A";
+      
+      // Création de la cellule pour le montant total
+      const totalCell = document.createElement("td");
+      totalCell.textContent = order.total ? order.total + " €" : "N/A";
+      
+      // Création de la cellule pour le statut de la commande
+      const statusCell = document.createElement("td");
+      statusCell.textContent = order.status || "N/A";
+      
+      // Ajouter toutes les cellules à la ligne
+      tr.appendChild(idCell);
+      tr.appendChild(dateCell);
+      tr.appendChild(totalCell);
+      tr.appendChild(statusCell);
+      
+      // Ajouter la ligne au corps du tableau
+      tbody.appendChild(tr);
+  });
+});
+
+
+/*
+// Gestion de la soumission du formulaire de checkout
+document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  // Récupérer les valeurs du formulaire
+  const firstName = document.getElementById('firstName').value;
+  const lastName  = document.getElementById('lastName').value;
+  const email     = document.getElementById('email').value;
+  const phone     = document.getElementById('phone').value;
+  
   // Ici, vous pouvez ajouter la logique de validation et de paiement
   alert(`Merci ${firstName} ${lastName}, votre commande est en cours de traitement.`);
   
   // Optionnel : Actualiser le compteur, réinitialiser le formulaire et vider le panier
   updateCartCounter(); // Actualise le compteur
-  this.reset();
+  this.reset(); // remettre le champ des input à zero
   localStorage.removeItem('cart');
   loadCart();
   
@@ -252,7 +444,8 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
   
   // Rediriger l'utilisateur vers WhatsApp
   window.location.href = whatsappUrl;
-});
+}); 
+*/
 
 
 // Charger le panier dès que le DOM est prêt
