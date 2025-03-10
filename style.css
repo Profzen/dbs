@@ -357,7 +357,7 @@ body {
   
   .subscription-item {
     /* Chaque carte occupe environ 50% de la largeur de la ligne moins un peu d'espace pour le gap */
-    /*flex: 0 0 calc(50% - 20px);*/
+    flex: 0 0 calc(100% - 20px);
     box-sizing: border-box;
   }
 }
