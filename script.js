@@ -284,9 +284,7 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
                           `Nous vous souhaitons une excellente journée.`;
   
   // Afficher une alerte de confirmation
-  alert(`Merci ${firstName} ${lastName}, merci pour votre commande, 
-                                        vous alez être rediriger vers whatsap 
-                                        avec un message preconfiguré, veuillez l'envoyer sans le modifier.`);
+  alert(`Merci ${firstName} ${lastName}, merci pour votre commande, vous alez être rediriger vers whatsap avec un message preconfiguré, veuillez l'envoyer sans le modifier.`);
   
   // Optionnel : Actualiser le compteur, réinitialiser le formulaire et vider le panier
   updateCartCounter();
