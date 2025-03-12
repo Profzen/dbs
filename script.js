@@ -284,7 +284,9 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
                           `Nous vous souhaitons une excellente journée.`;
   
   // Afficher une alerte de confirmation
-  alert(`Merci ${firstName} ${lastName}, votre commande est en cours de traitement.`);
+  alert(`Merci ${firstName} ${lastName}, merci pour votre commande, 
+                                        vous alez être rediriger vers whatsap 
+                                        avec un message preconfiguré, veuillez l'envoyer sans le modifier.`);
   
   // Optionnel : Actualiser le compteur, réinitialiser le formulaire et vider le panier
   updateCartCounter();
@@ -297,7 +299,7 @@ document.getElementById('checkoutForm').addEventListener('submit', function(e) {
   
   // Construire l'URL WhatsApp pour envoyer le message
   // Remplacez "22891224470" par le numéro de téléphone au format international (sans le signe +)
-  const whatsappUrl = `https://wa.me/22891224470?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/22898177475?text=${encodedMessage}`;
   
   // Rediriger l'utilisateur vers WhatsApp avec le message pré-rempli
   window.location.href = whatsappUrl;
